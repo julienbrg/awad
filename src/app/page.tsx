@@ -170,51 +170,51 @@ export default function Home() {
           )}
         </Box>
 
-        {isAuthenticated && user && (
-          <>
-            <VStack>
-              <Box textAlign="center">
-                <Button colorPalette="blue" onClick={handleNewWord} size="sm" mb="10">
-                  Go !
-                </Button>
+        {/* {isAuthenticated && user && (
+          <> */}
+        <VStack>
+          <Box textAlign="center">
+            <Button colorPalette="blue" onClick={handleNewWord} size="sm" mb="10">
+              Go !
+            </Button>
+          </Box>
+          {words.length > 0 && (
+            <Box textAlign="center" mb="100px">
+              <Box
+                onPointerDown={handlePointerDown}
+                onPointerUp={handlePointerUp}
+                style={{ touchAction: 'pan-y', userSelect: 'none' }}
+              >
+                <Text whiteSpace="pre-wrap" fontSize="xl">
+                  {words[wordIndex]}
+                </Text>
+                <Text mt={2} fontSize="sm" color="gray.400">
+                  {wordIndex + 1} / {words.length}
+                </Text>
               </Box>
-              {words.length > 0 && (
-                <Box textAlign="center" mb="100px">
-                  <Box
-                    onPointerDown={handlePointerDown}
-                    onPointerUp={handlePointerUp}
-                    style={{ touchAction: 'pan-y', userSelect: 'none' }}
-                  >
-                    <Text whiteSpace="pre-wrap" fontSize="xl">
-                      {words[wordIndex]}
-                    </Text>
-                    <Text mt={2} fontSize="sm" color="gray.400">
-                      {wordIndex + 1} / {words.length}
-                    </Text>
-                  </Box>
-                  <HStack mt={20} justify="center">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={handlePreviousWord}
-                      disabled={wordIndex <= 0}
-                    >
-                      ← Précédent
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={handleNextWord}
-                      disabled={wordIndex >= words.length - 1}
-                    >
-                      Suivant →
-                    </Button>
-                  </HStack>
-                </Box>
-              )}
-            </VStack>
-          </>
-        )}
+              <HStack mt={20} justify="center">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={handlePreviousWord}
+                  disabled={wordIndex <= 0}
+                >
+                  ← Précédent
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={handleNextWord}
+                  disabled={wordIndex >= words.length - 1}
+                >
+                  Suivant →
+                </Button>
+              </HStack>
+            </Box>
+          )}
+        </VStack>
+        {/* </>
+        )} */}
       </VStack>
     </>
   )
