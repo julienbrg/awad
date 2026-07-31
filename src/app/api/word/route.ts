@@ -12,7 +12,11 @@ export async function POST() {
       body: JSON.stringify({
         messages: [
           {
-            content: 'Show me 5 words in French',
+            content:
+              'Give me 5 French words that are sophisticated, rare, and literary — ' +
+              'the kind found in advanced literature or an educated adult vocabulary, ' +
+              'not everyday conversational words. Avoid common, simple words. ' +
+              'Respond with ONLY a JSON array of 5 strings, no other text, no markdown, no code fences.',
             role: 'user',
           },
         ],

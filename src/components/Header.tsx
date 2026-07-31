@@ -205,13 +205,6 @@ export default function Header() {
     }
   }
 
-  useEffect(() => {
-    const isValid = validateUsername(username)
-    if (isValid) {
-      setIsUsernameInvalid(false)
-    }
-  }, [username])
-
   const handleLogout = () => {
     logout()
   }
@@ -242,7 +235,7 @@ export default function Header() {
                 <Link href="/">
                   <Flex align="center" gap={5}>
                     <Heading as="h3" size="md" textAlign="center">
-                      awad
+                      AWAD
                     </Heading>
                   </Flex>
                 </Link>
@@ -350,7 +343,13 @@ export default function Header() {
                       }
                       aria-invalid={isUsernameInvalid && username.trim() ? true : undefined}
                       value={username}
-                      onChange={e => setUsername(e.target.value)}
+                      onChange={e => {
+                        const value = e.target.value
+                        setUsername(value)
+                        if (validateUsername(value)) {
+                          setIsUsernameInvalid(false)
+                        }
+                      }}
                       placeholder="Enter your username"
                       pl={3}
                       onKeyDown={e => {
